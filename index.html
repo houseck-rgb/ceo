@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#f2f2f7">
+<title>최우영씨푸드 CEO 발주리스트</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2f2f7;--card:#fff;--line:#e5e5ea;--line2:#f0f0f5;
+  --gold:#b8860b;--gold2:#c9952a;--gold3:#e8c96e;--goldbg:#fdf6e3;--goldbr:#e8c86a;
+  --txt:#111;--txt2:#555;--txt3:#999;--txt4:#ccc;--blue:#007aff;--red:#ff3b30;--kakao:#FEE500;
+  --r:16px;--rs:10px;--sh:0 2px 10px rgba(0,0,0,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--txt);font-family:'Noto Sans KR',sans-serif;min-height:100dvh;padding-bottom:126px}
+.splash{background:#111;padding:44px 22px 36px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.logo-icon{font-size:52px;margin-bottom:14px}
+.gold-title{font-size:30px;font-weight:900;line-height:1.1;letter-spacing:.5px;background:linear-gradient(180deg,#fff4bf 0%,#e8c96e 46%,#b8860b 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 2px 12px rgba(232,201,110,.25)}
+.gold-sub{margin-top:8px;font-size:23px;font-weight:900;letter-spacing:.18em;background:linear-gradient(180deg,#fff8cf 0%,#e8c96e 46%,#b8860b 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 2px 12px rgba(232,201,110,.22)}
+.divider{width:56px;height:1px;background:rgba(232,201,110,.42);margin:20px auto 16px}
+.app-title{color:var(--gold3);font-size:15px;font-weight:900;letter-spacing:.28em;text-transform:uppercase}
+.hdr{position:sticky;top:0;z-index:50;background:rgba(242,242,247,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:14px 18px 12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.hdr-brand{font-family:'Noto Serif KR',serif;font-size:17px;font-weight:900;color:var(--txt);letter-spacing:-.4px;line-height:1.2}
+.hdr-sub{font-size:11px;color:var(--txt3);margin-top:1px}
+.hdr-date{font-size:13px;font-weight:800;color:var(--txt2);background:var(--card);border:1px solid var(--line);padding:6px 12px;border-radius:20px;box-shadow:var(--sh)}
+.hero{margin:14px 16px 12px;background:var(--goldbg);border:1px solid var(--goldbr);border-radius:var(--r);padding:13px 16px;display:flex;align-items:flex-start;gap:10px}
+.hero-icon{font-size:20px;flex-shrink:0;line-height:1.3}
+.hero-title{font-size:14px;font-weight:900;color:var(--gold);letter-spacing:-.2px;margin-bottom:5px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.hbadge{font-size:11px;color:var(--txt2);background:#fff;border:1px solid var(--line);padding:3px 8px;border-radius:20px;font-weight:700}
+.hbadge.cnt{color:var(--gold2);border-color:var(--goldbr);background:var(--goldbg);font-weight:900}
+.wrap{padding:0 16px 18px;display:flex;flex-direction:column;gap:10px}
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--sh);border:1px solid var(--line);overflow:hidden}
+.card-h{display:flex;align-items:center;justify-content:space-between;padding:15px 16px;border-bottom:1px solid var(--line2)}
+.card-title{font-size:15px;font-weight:900;letter-spacing:-.3px}
+.count{font-size:11px;color:var(--gold2);background:var(--goldbg);border:1px solid var(--goldbr);padding:2px 8px;border-radius:10px;font-weight:900;min-width:24px;text-align:center}
+.store-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;padding:14px}
+.store-btn{height:36px;border:1.5px solid var(--line);border-radius:10px;background:#fafafa;color:var(--txt);font-size:13px;font-weight:800;font-family:'Noto Sans KR',sans-serif;cursor:pointer;padding:0 6px}
+.store-btn.selected{background:#111;color:#fff;border-color:#111}
+.irow{display:flex;align-items:center;justify-content:space-between;min-height:54px;padding:9px 16px;border-bottom:1px solid var(--line2)}
+.irow:last-child{border-bottom:none}
+.irow.v{background:var(--goldbg)}
+.il{display:flex;align-items:center;gap:9px;min-width:0;flex:1}
+.iem{font-size:18px;width:22px;text-align:center;flex-shrink:0}
+.inm{font-size:14px;color:var(--txt);font-weight:700;letter-spacing:-.2px;line-height:1.35}
+.irow.v .inm{color:var(--gold)}
+.ictrl{display:flex;align-items:center;flex-shrink:0}
+.cb{width:38px;height:38px;border:1.5px solid var(--line);background:var(--card);color:var(--txt2);font-size:20px;font-weight:300;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-appearance:none;line-height:1;touch-action:manipulation;border-radius:0}
+.cb:first-child{border-radius:var(--rs) 0 0 var(--rs)}
+.cb:last-child{border-radius:0 var(--rs) var(--rs) 0}
+.qi{width:47px;height:38px;background:#fafafa;border-top:1.5px solid var(--line);border-bottom:1.5px solid var(--line);border-left:none;border-right:none;color:var(--txt);font-size:15px;font-weight:900;text-align:center;font-family:'Noto Sans KR',sans-serif;-webkit-appearance:none;outline:none}
+.qi.v{color:var(--gold2)}
+.unit{width:34px;margin-left:6px;font-size:11px;font-weight:900;color:var(--txt3);text-transform:uppercase}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none}
+input[type=number]{-moz-appearance:textfield}
+.check-list{padding:8px 0}
+.check-row{display:flex;align-items:center;gap:10px;min-height:50px;padding:10px 16px;border-bottom:1px solid var(--line2);font-size:14px;font-weight:800;color:var(--txt);letter-spacing:-.2px}
+.check-row:last-child{border-bottom:none}
+.check-row input{width:22px;height:22px;accent-color:var(--gold)}
+.memo-wrap{padding:14px}
+.memo{width:100%;min-height:92px;background:#fafafa;border:1.5px solid var(--line);border-radius:var(--r);color:var(--txt);font-size:15px;line-height:1.55;font-family:'Noto Sans KR',sans-serif;padding:13px 14px;resize:vertical;outline:none}
+.preview{background:#fff;border:1px solid var(--line2);border-radius:14px;padding:16px;font-size:13px;line-height:1.8;min-height:120px;max-height:260px;overflow:auto;white-space:pre-wrap;color:#444;font-weight:500}
+.bottom{position:fixed;left:0;right:0;bottom:0;z-index:80;background:rgba(242,242,247,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:10px 16px 30px}
+.bottom-inner{max-width:720px;margin:0 auto;display:flex;gap:10px}
+.send{flex:1;height:54px;border:none;border-radius:var(--r);background:#111;color:#fff;font-size:16px;font-weight:900;font-family:'Noto Sans KR',sans-serif;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.copy{width:72px;height:54px;border:none;border-radius:var(--r);background:var(--kakao);color:#111;font-size:15px;font-weight:900;font-family:'Noto Sans KR',sans-serif}
+.reset{width:54px;height:54px;border:1.5px solid var(--line);border-radius:var(--r);background:#fff;font-size:22px}
+.toast{position:fixed;top:70px;left:50%;transform:translateX(-50%) translateY(-8px);background:rgba(20,20,20,.92);color:#fff;font-size:13px;font-weight:700;padding:10px 18px;border-radius:20px;white-space:nowrap;z-index:999;opacity:0;transition:.2s;pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+  <section class="splash">
+    <div class="logo-icon">🐟</div>
+    <div class="gold-title">CHOI WOO YOUNG</div>
+    <div class="gold-sub">SEAFOOD CEO</div>
+    <div class="divider"></div>
+    <div class="app-title">PREMIUM ORDER LIST</div>
+  </section>
+
+  <header class="hdr">
+    <div>
+      <div class="hdr-brand">최우영씨푸드 CEO</div>
+      <div class="hdr-sub">Premium Seafood Order System</div>
+    </div>
+    <div class="hdr-date" id="today">TODAY</div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-icon">📦</div>
+    <div>
+      <div class="hero-title">매장과 품목을 선택하면 전송 문구가 자동 완성됩니다.</div>
+      <div class="hero-meta">
+        <span class="hbadge">매장 선택</span>
+        <span class="hbadge">수량 입력</span>
+        <span class="hbadge cnt">보내주세요 자동 포함</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section class="card">
+      <div class="card-h"><div class="card-title">🏪 매장 선택</div><span class="count">6</span></div>
+      <div class="store-grid" id="stores"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-h"><div class="card-title">🐟 생선 / 횟감 발주</div><span class="count">kg</span></div>
+      <div id="fishItems"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-h"><div class="card-title">📦 해산물 / 기타 발주</div><span class="count">EA / BOX</span></div>
+      <div id="etcItems"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-h"><div class="card-title">☑ 요청 체크사항</div><span class="count">선택</span></div>
+      <div class="check-list">
+        <label class="check-row"><input type="checkbox" data-check="서더리와 도미머리" onchange="updatePreview()">서더리와 도미머리</label>
+        <label class="check-row"><input type="checkbox" data-check="서더리와 도미머리 손질해서 주세요." onchange="updatePreview()">서더리와 도미머리 손질해서 주세요.</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-h"><div class="card-title">📝 메모란</div><span class="count">선택</span></div>
+      <div class="memo-wrap"><textarea id="memo" class="memo" placeholder="추가 요청사항 및 메모를 입력해주세요." oninput="updatePreview()"></textarea></div>
+    </section>
+
+    <section class="card">
+      <div class="card-h"><div class="card-title">📋 전송 미리보기</div><span class="count">자동</span></div>
+      <div class="memo-wrap"><div id="preview" class="preview"></div></div>
+    </section>
+  </main>
+
+  <div class="bottom">
+    <div class="bottom-inner">
+      <button class="send" onclick="shareText()">📲 카카오톡 보내기</button>
+      <button class="copy" onclick="copyText()">복사</button>
+      <button class="reset" onclick="resetAll()">↺</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+<script>
+const stores = ['구로','영등포','여의도','종로','메모1','메모2'];
+const fishItems = ['광어','도다리','메모','방어','연어','우럭','점성어','참돔'];
+const etcItems = [
+  {name:'멍게', unit:'EA', emoji:'🦪'},
+  {name:'성게알', unit:'BOX', emoji:'🟡'},
+  {name:'전복', unit:'EA', emoji:'🐚'},
+  {name:'포장용 매운탕', unit:'EA', emoji:'🍲'}
+];
+let selectedStore = '';
+
+function $(id){return document.getElementById(id)}
+
+function showToast(msg){
+  const t=$('toast');
+  t.textContent=msg;
+  t.classList.add('on');
+  setTimeout(()=>t.classList.remove('on'),1600);
+}
+
+function renderToday(){
+  const d=new Date();
+  const days=['일','월','화','수','목','금','토'];
+  $('today').textContent = `${d.getMonth()+1}/${d.getDate()}(${days[d.getDay()]})`;
+}
+
+function renderStores(){
+  $('stores').innerHTML = stores.map(s =>
+    `<button class="store-btn" data-store="${s}" onclick="selectStore('${s}')">${s}</button>`
+  ).join('');
+}
+
+function selectStore(s){
+  selectedStore=s;
+  document.querySelectorAll('.store-btn').forEach(b => b.classList.toggle('selected', b.dataset.store===s));
+  updatePreview();
+}
+
+function safeId(prefix, name){
+  return prefix + '_' + name.replaceAll(' ','_').replaceAll('/','_');
+}
+
+function renderQtyRow(item, unit, group, emoji='🐠'){
+  const id=safeId(group,item);
+  return `
+    <div class="irow" id="row_${id}">
+      <div class="il">
+        <span class="iem">${emoji}</span>
+        <span class="inm">${item}</span>
+      </div>
+      <div class="ictrl">
+        <button class="cb" onclick="stepQty('${id}',-1)">−</button>
+        <input class="qi" id="${id}" type="number" min="0" placeholder="0" oninput="markRow('${id}');updatePreview()">
+        <button class="cb" onclick="stepQty('${id}',1)">+</button>
+        <span class="unit">${unit}</span>
+      </div>
+    </div>`;
+}
+
+function renderItems(){
+  $('fishItems').innerHTML = fishItems.map(i => renderQtyRow(i,'kg','fish','🐟')).join('');
+  $('etcItems').innerHTML = etcItems.map(i => renderQtyRow(i.name,i.unit,'etc',i.emoji)).join('');
+}
+
+function markRow(id){
+  const input=$(id);
+  const row=$('row_'+id);
+  const has=Number(input.value||0)>0;
+  if(row) row.classList.toggle('v', has);
+  input.classList.toggle('v', has);
+}
+
+function stepQty(id,delta){
+  const input=$(id);
+  const v=Number(input.value||0);
+  input.value=Math.max(0,v+delta);
+  markRow(id);
+  updatePreview();
+}
+
+function buildMessage(){
+  const d=new Date();
+  const days=['일','월','화','수','목','금','토'];
+    const lines=[];
+  lines.push('✨ CHOI WOO YOUNG SEAFOOD CEO ✨');
+  lines.push('발주리스트');
+  lines.push(`📅 ${d.getMonth()+1}/${d.getDate()}(${days[d.getDay()]})`);
+  lines.push(`⏰ 발주시간: ${time}`);
+  lines.push('');
+  lines.push(`🏪 매장: ${selectedStore || '미선택'}`);
+  lines.push('');
+
+  const fishSelected = fishItems.map(i => {
+    const id=safeId('fish',i);
+    return {name:i, qty:$(id)?.value || ''};
+  }).filter(x => x.qty && Number(x.qty)>0);
+
+  if(fishSelected.length){
+    lines.push('🐟 생선 / 횟감 발주');
+    fishSelected.forEach(x => lines.push(`- ${x.name} ${x.qty}kg`));
+    lines.push('');
+  }
+
+  const etcSelected = etcItems.map(i => {
+    const id=safeId('etc',i.name);
+    return {name:i.name, unit:i.unit, qty:$(id)?.value || ''};
+  }).filter(x => x.qty && Number(x.qty)>0);
+
+  if(etcSelected.length){
+    lines.push('📦 해산물 / 기타 발주');
+    etcSelected.forEach(x => lines.push(`- ${x.name} ${x.qty}${x.unit}`));
+    lines.push('');
+  }
+
+  const checks = Array.from(document.querySelectorAll('[data-check]:checked')).map(c => c.dataset.check);
+  if(checks.length){
+    lines.push('☑ 요청 체크사항');
+    checks.forEach(c => lines.push(`- ${c}`));
+    lines.push('');
+  }
+
+  const memo=$('memo').value.trim();
+  if(memo){
+    lines.push('📝 메모');
+    lines.push(memo);
+    lines.push('');
+  }
+
+  lines.push('보내주세요.');
+  return lines.join('\\n');
+}
+
+function updatePreview(){
+  $('preview').textContent = buildMessage();
+}
+
+async function copyText(){
+  const text=buildMessage();
+  try{
+    await navigator.clipboard.writeText(text);
+    showToast('복사되었습니다.');
+  }catch(e){
+    const temp=document.createElement('textarea');
+    temp.value=text;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand('copy');
+    document.body.removeChild(temp);
+    showToast('복사되었습니다.');
+  }
+}
+
+async function shareText(){
+  const text=buildMessage();
+  try{
+    if(navigator.share){
+      await navigator.share({text});
+      return;
+    }
+  }catch(e){}
+  await copyText();
+  showToast('복사 완료! 카카오톡에 붙여넣어 주세요.');
+}
+
+function resetAll(){
+  if(!confirm('전체 초기화할까요?')) return;
+  selectedStore='';
+  document.querySelectorAll('.store-btn').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.qi').forEach(i => { i.value=''; i.classList.remove('v'); });
+  document.querySelectorAll('.irow').forEach(r => r.classList.remove('v'));
+  document.querySelectorAll('[data-check]').forEach(c => c.checked=false);
+  $('memo').value='';
+  updatePreview();
+  showToast('초기화되었습니다.');
+}
+
+renderToday();
+renderStores();
+renderItems();
+updatePreview();
+</script>
+</body>
+</html>
